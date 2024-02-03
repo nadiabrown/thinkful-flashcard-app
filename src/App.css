@@ -1,0 +1,16 @@
+.deck{
+    width: 800px;
+    height: 200px;
+    border: 2px solid gray;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
