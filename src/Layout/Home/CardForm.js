@@ -4,7 +4,7 @@ function CardForm({ handleFormSubmit, handleInputChange, initialCardDetails }) {
   const { front, back } = initialCardDetails || {};
 
   return (
-    <>
+    <div>
       <form onSubmit={handleFormSubmit}>
         <label htmlFor="front">Front:</label>
         <textarea
@@ -23,7 +23,7 @@ function CardForm({ handleFormSubmit, handleInputChange, initialCardDetails }) {
         />
         <button onClick={handleFormSubmit}>Save</button>
       </form>
-    </>
+    </div>
   );
 }
 

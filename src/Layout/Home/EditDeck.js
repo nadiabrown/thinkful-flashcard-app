@@ -53,7 +53,7 @@ function EditDeck() {
   };
 
   return (
-    <>
+    <div>
       <div className="breadcrumb-nav">
         <Link to="/">Home</Link>
         <p>/{name}</p>
@@ -81,7 +81,7 @@ function EditDeck() {
         <button type="submit">Submit</button>
       </form>
       <Link to={`/decks/${deckId}`}></Link>
-    </>
+    </div>
   );
 }
 

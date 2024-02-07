@@ -59,7 +59,7 @@ function EditCard() {
   }
 
   return (
-    <>
+    <div>
       <div className="breadcrumb-nav">
         <Link to="/">Home</Link>
         <p>/{deck.name}</p>
@@ -73,7 +73,7 @@ function EditCard() {
       />
 
       <Link to={`/decks/${deckId}`}>Cancel</Link>
-    </>
+    </div>
   );
 }
 

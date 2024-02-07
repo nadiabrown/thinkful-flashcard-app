@@ -46,12 +46,13 @@ function AddCard() {
   }
 
   return (
-    <>
+    <div>
       <div className="breadcrumb-nav">
         <p>/</p>
         <p>{deck.name}</p>
       </div>
-      <h1>{deck.name}: Add Card</h1>
+      <h1>{deck.name}: </h1>
+      <h1>Add Card</h1>
 
       <CardForm
         handleFormSubmit={handleFormSubmit}
@@ -60,7 +61,7 @@ function AddCard() {
       />
 
       <Link to={`/decks/${deckId}`}>Done</Link>
-    </>
+    </div>
   );
 }
 

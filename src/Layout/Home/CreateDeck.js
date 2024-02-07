@@ -41,7 +41,9 @@ function CreateDeck() {
           id="description"
           onChange={(event) => setDescription(event.target.value)}
         ></textarea>
-        <input type="submit" value="submit" />
+        <button type="submit" value="submit">
+          Submit
+        </button>
       </form>
       <button onClick={() => history.push("/")}>Cancel</button>
     </div>

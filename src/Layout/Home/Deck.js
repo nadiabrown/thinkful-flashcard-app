@@ -47,7 +47,7 @@ function Deck() {
   }
 
   return (
-    <>
+    <div>
       <div className="breadcrumb-nav">
         <Link to="/">Home</Link>
         <p>/{deck.name}</p>
@@ -92,7 +92,7 @@ function Deck() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
