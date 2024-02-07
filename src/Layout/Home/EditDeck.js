@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import { readDeck, updateDeck } from "../../utils/api";
 
 function EditDeck() {
@@ -7,6 +7,7 @@ function EditDeck() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const { deckId } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     readDeck(Number(deckId)).then((fetchedData) => {
@@ -40,6 +41,7 @@ function EditDeck() {
     updateDeck(updatedDeck, signal)
       .then(() => {
         console.log("Deck updated successfully");
+        history.push(`/decks/${deckId}`);
       })
       .catch((error) => {
         if (error.name === "AbortError") {

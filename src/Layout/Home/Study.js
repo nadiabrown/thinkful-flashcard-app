@@ -8,6 +8,7 @@ export const Study = () => {
   const [error, setError] = useState(undefined);
   const [flipped, setFlipped] = useState(false);
   const [cardIndex, setCardIndex] = useState(0);
+  const history = useHistory();
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -28,6 +29,8 @@ export const Study = () => {
       const result = window.confirm("Do you want to restart the deck?");
       if (result) {
         setCardIndex(0);
+      } else {
+        history.push("/");
       }
     } else {
       setCardIndex(cardIndex + 1);
