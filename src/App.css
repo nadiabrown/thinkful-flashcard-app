@@ -1,7 +1,7 @@
 .deck{
-    width: 800px;
+    width: 700px;
     height: 200px;
-    border: 2px solid gray;
+    border: 2px solid #E8E8E8;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -9,8 +9,9 @@
     margin-bottom: 10px;
 }
 
-.buttons{
-    display: flex;
-    justify-content: space-between;
+.create-deck-button {
+    background-color: #6C757D;
+    padding: 12px;
+    color: #ffffff;
 }
 

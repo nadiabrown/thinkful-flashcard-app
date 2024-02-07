@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { readDeck } from "../../utils/api";
+import { readDeck, updateDeck } from "../../utils/api";
 
 function EditDeck() {
   const [deck, setDeck] = useState(null);
@@ -32,6 +32,24 @@ function EditDeck() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    const updatedDeck = { ...deck, name: name, description: description };
+    updateDeck(updatedDeck, signal)
+      .then(() => {
+        console.log("Deck updated successfully");
+        setName("");
+        setDescription("");
+      })
+      .catch((error) => {
+        if (error.name === "AbortError") {
+          console.log("Fetch aborted");
+        } else {
+          console.error("An error occurred while updating the deck:", error);
+        }
+      });
   };
 
   return (
@@ -48,18 +66,21 @@ function EditDeck() {
           type="text"
           name="name"
           id="name"
-          value={name} // Bind the value to the state variable
+          value={name}
           onChange={handleInputChange}
         ></input>
+
         <label htmlFor="description">Description</label>
         <textarea
-          name="description" // Add name attribute to textarea
+          name="description"
           id="description"
-          value={description} // Bind the value to the state variable
+          value={description}
           onChange={handleInputChange}
         ></textarea>
+        <Link to={`/decks/${deckId}`}>Cancel</Link>
         <button type="submit">Submit</button>
       </form>
+      <Link to={`/decks/${deckId}`}></Link>
     </>
   );
 }

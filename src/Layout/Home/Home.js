@@ -13,7 +13,7 @@ function Home() {
   }, []);
 
   const deleteDeck = async (id) => {
-    await fetch(`/api/decks${id}`, {
+    await fetch(`/api/decks/${id}`, {
       method: "DELETE",
     });
 
@@ -22,7 +22,9 @@ function Home() {
 
   return (
     <div>
-      <Link to="decks/new">Create Deck</Link>
+      <Link to="decks/new" className="create-deck-button">
+        Create Deck
+      </Link>
       {decks.map((deck, index) => (
         <div key={index} class="deck">
           <h2>{deck.name}</h2>
@@ -30,16 +32,24 @@ function Home() {
           <p>{deck.description}</p>
           <div class="buttons">
             <div>
-              <Link class="study-button" to={`decks/${deck.id}/study`}>
+              <Link
+                class="gray-button"
+                className="sub-button"
+                to={`decks/${deck.id}/study`}
+              >
                 Study
               </Link>
-              <Link class="view-button" to={`decks/${deck.id}`}>
+              <Link
+                class="blue-button"
+                className="sub-button"
+                to={`decks/${deck.id}`}
+              >
                 View
               </Link>
             </div>
             <div>
               <button
-                class="delete-button"
+                className="delete-button"
                 onClick={() => {
                   if (
                     window.confirm("Are you sure you want to delete this deck?")

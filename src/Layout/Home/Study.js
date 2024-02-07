@@ -32,11 +32,9 @@ function Study() {
         "You have finished studying this deck. Would you like to restart?"
       );
       if (restart) {
-        // Restart the deck
         setCurrentCardIndex(0);
         setIsFlipped(false);
       } else {
-        // Return to the home screen
         history.push("/");
       }
     }
@@ -52,8 +50,6 @@ function Study() {
   };
 
   const addCardsToDeck = () => {
-    // Logic to add cards to the deck
-    // This could involve redirecting to a page where users can add cards
     history.push(`/decks/${deckId}/add`);
   };
 
@@ -74,6 +70,11 @@ function Study() {
 
   return (
     <>
+      <div className="breadcrumb-nav">
+        <Link to="/">Home</Link>
+        <p>/{deck.name}</p>
+        <p>/Study</p>
+      </div>
       <h1>Study: {deck.name}</h1>
       <div className="card-container">
         <div className={`card ${isFlipped ? "flipped" : ""}`}>
