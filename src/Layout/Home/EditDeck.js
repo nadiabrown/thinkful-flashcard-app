@@ -40,8 +40,6 @@ function EditDeck() {
     updateDeck(updatedDeck, signal)
       .then(() => {
         console.log("Deck updated successfully");
-        setName("");
-        setDescription("");
       })
       .catch((error) => {
         if (error.name === "AbortError") {
